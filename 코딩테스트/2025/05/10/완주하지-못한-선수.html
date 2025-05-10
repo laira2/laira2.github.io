@@ -1,0 +1,60 @@
+<h3 id="-문제-요약">🧩 문제 요약</h3>
+
+<ul>
+  <li>마라톤 참가자 명단과 완주자 명단이 주어짐</li>
+  <li>단 한 명의 선수가 완주하지 못함</li>
+  <li>그 선수를 찾아 반환</li>
+</ul>
+
+<hr />
+
+<h3 id="-풀이-전략">💡 풀이 전략</h3>
+
+<ul>
+  <li>참가자 명단을 해시맵에 저장 → 이름별 등장 횟수 세기</li>
+  <li>완주자 명단을 돌면서 등장 횟수 차감</li>
+  <li>마지막에 <strong>값이 1 남은 이름이 완주 못한 선수</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="-java-코드">✅ Java 코드</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">solution</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">participant</span><span class="o">,</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">completion</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">p</span> <span class="o">:</span> <span class="n">participant</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">p</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">p</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">c</span> <span class="o">:</span> <span class="n">completion</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">c</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">key</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="-시간복잡도">🧠 시간복잡도</h3>
+<p>참가자 수: N</p>
+
+<p>해시맵 삽입 &amp; 탐색 → 평균 O(1)</p>
+
+<p>총 시간복잡도: O(N)</p>
+
+<hr />
+
+<h3 id="-트러블슈팅">🔍 트러블슈팅</h3>
+<p>처음엔 Arrays.sort()로 푸는 방법도 생각했지만,
+해시맵 방식이 더 빠르고 깔끔했음</p>
+
