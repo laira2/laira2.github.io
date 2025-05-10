@@ -1,38 +1,49 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
+# ─────────────────────────────────────────────────────────────────────────────
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-title: 혜지의 블로그
-email: laira2@naver.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
-
+title: 양혜지ʼs Backend Dev Blog
+description: Java·Spring 기반 백엔드 개발 & 코딩테스트 풀이 기록
+baseurl: ""     
+url: "https://laira2.github.io"
+# ─────────────────────────────────────────────────────────────────────────────
+# Appearance
+theme_skin: default    
+favicon: "/assets/images/favicon.ico"
+# ─────────────────────────────────────────────────────────────────────────────
+# Author / Profile
+author:
+  name: 양혜지
+  bio: "백엔드 개발자 | MSA·CI/CD·Docker·AWS"
+  links:
+    - label: GitHub
+      icon: "fab fa-github"
+      url: "https://github.com/laira2"
+    - label: Velog
+      icon: "fas fa-rss"
+      url: "https://velog.io/@laira2"
+# ─────────────────────────────────────────────────────────────────────────────
+# Navigation (상단 메뉴)
+navigation:
+  - title: Home
+    url: /
+  - title: Posts
+    url: /year-archive/
+  - title: Tags
+    url: /tags/
+  - title: About
+    url: /about/
+# ─────────────────────────────────────────────────────────────────────────────
+# Footer (하단)
+footer:
+  content: "© 2025 양혜지. All rights reserved."
+# ─────────────────────────────────────────────────────────────────────────────
 # Build settings
-theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+markdown: kramdown
+highlighter: rouge
+theme: minimal-mistakes-jekyll
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
